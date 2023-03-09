@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="row">
+{% for sub in subs %}
+    <div class="col-auto">
+        <div class="card" style="width: 24rem;">
+            <div class="card-header">
+                {{sub.user}}
+                <span class="badge bg-warning">{{sub.user.erp}}</span>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary" href="{% url 'single-sub' sub.id %}">Details</a>
+            </div>
+        </div>
+    </div>
+{% empty %}
+<p> You have no subscriptions</p>
+{% endfor %}
+</div>
+{% endblock %}

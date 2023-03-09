@@ -27,6 +27,11 @@ class Subscription(models.Model):
 
     objects = SubscriptionManager()
 
+
+    def __str__(self):
+        return self.user.email + ' - ' + str(self.is_active)
+
+
     def get_days(self):
         if self.terminated_at == None:
             end = self.period.end_date
